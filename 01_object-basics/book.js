@@ -65,3 +65,49 @@ console.log(player1.sayName());
 console.log(player2.sayName());
 console.log(player1.getMarker());
 console.log(player2.getMarker());
+
+//CONSTRUCTOR FUNCTIONS =================================>
+function Hero(name, level) {
+  this.name = name;
+  this.level = level;
+}
+
+let hero1 = new Hero("Bjorn", 1);
+console.log(hero1);
+console.log(Object.getPrototypeOf(hero1));
+
+Hero.prototype.greet = function () {
+  return `${this.name} says hello`;
+};
+
+console.log(hero1.greet());
+
+//call method =========================>
+function Warrior(name, level, weapon) {
+  Hero.call(this, name, level);
+  this.weapon = weapon;
+}
+
+function Healer(name, level, spell) {
+  Hero.call(this, name, level);
+  this.spell = spell;
+}
+
+Warrior.prototype.attack = function () {
+  return `${this.name} attaks with the ${this.weapon}`;
+};
+
+Healer.prototype.heal = function () {
+  return `${this.name} cast ${this.spell}`;
+};
+
+const heroWarrior = new Warrior("Bjorn", 1, "axe");
+const heroHealer = new Healer("Kanin", 1, "cure");
+
+Object.setPrototypeOf(Warrior.prototype, Hero.prototype);
+Object.setPrototypeOf(Healer.prototype, Hero.prototype);
+
+console.log(heroWarrior.attack());
+console.log(heroWarrior.greet());
+console.log(heroHealer.heal());
+console.log(heroHealer.greet());
