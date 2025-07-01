@@ -111,3 +111,33 @@ console.log(heroWarrior.attack());
 console.log(heroWarrior.greet());
 console.log(heroHealer.heal());
 console.log(heroHealer.greet());
+
+//this Keyword ===================================>
+let counter = {
+  count: 0,
+  next: function () {
+    return ++this.count;
+  },
+};
+
+console.log(counter.next());
+
+//Simple function invocation ===========================>
+// function show() {
+//   console.log(this === window);
+// }
+
+// show();
+
+//Method Invocation  =====================================>
+let car = {
+  brand: "Honda",
+  getBrand: function () {
+    return this.brand;
+  },
+};
+
+console.log(car.getBrand());
+
+let brand = car.getBrand.bind(car);
+console.log(brand());
