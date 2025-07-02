@@ -8,28 +8,16 @@
   </head>
   <body>
     <div class="container">
-      <nav>
+      <div class="nav">
         <h1>Odin Library</h1>
-      </nav>
-      <div class="input-search">
         <input type="text" placeholder="Search" />
-      </div>
-      <div class="add-button">
-        <button id="addButton">+ Add book</button>
+        <button class="add-button" id="addButton">+ Add book</button>
       </div>
 
-      <ul>
+      <ul class="list-item">
         <li>
           That's excellent - completing both Front End
-          <span>06/30</span> <span>Notes</span>
-        </li>
-        <li>
-          The Odin Project - Resume
-          <span>06/30</span> <span>Notes</span>
-        </li>
-        <li>
-          My Blog App
-          <span>06/30</span> <span>Notes</span>
+          <span id="span-author"></span> <span>Notes</span>
         </li>
       </ul>
     </div>
@@ -37,11 +25,17 @@
     <div class="modal hidden">
       <span class="times">&times;</span>
       <h2>Add a New Book</h2>
-      <form action="bookForm">
-        <input type="text" placeholder="Title" required />
-        <input type="text" placeholder="Author" required />
-        <input type="number" placeholder="Pages" required />
-        <input type="date" placeholder="Date" required />
+      <form action="bookForm" class="bookForm">
+        <input
+          id="title"
+          name="title"
+          type="text"
+          placeholder="Title"
+          required
+        />
+        <input id="author" type="text" placeholder="Author" required />
+        <input id="pages" type="number" placeholder="Pages" required />
+        <!-- <input id="date" type="date" placeholder="Date" required /> -->
         <button type="submit" class="save">Save</button>
       </form>
     </div>
