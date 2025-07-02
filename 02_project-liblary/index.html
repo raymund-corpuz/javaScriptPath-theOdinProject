@@ -14,6 +14,9 @@
       <div class="input-search">
         <input type="text" placeholder="Search" />
       </div>
+      <div class="add-button">
+        <button id="addButton">+ Add book</button>
+      </div>
 
       <ul>
         <li>
@@ -29,6 +32,18 @@
           <span>06/30</span> <span>Notes</span>
         </li>
       </ul>
+    </div>
+
+    <div class="modal hidden">
+      <span class="times">&times;</span>
+      <h2>Add a New Book</h2>
+      <form action="bookForm">
+        <input type="text" placeholder="Title" required />
+        <input type="text" placeholder="Author" required />
+        <input type="number" placeholder="Pages" required />
+        <input type="date" placeholder="Date" required />
+        <button type="submit" class="save">Save</button>
+      </form>
     </div>
 
     <script src="script.js"></script>
