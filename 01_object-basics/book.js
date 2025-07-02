@@ -167,3 +167,43 @@ console.log(myDog.bark());
 console.log(myDog.bark());
 console.log(myDog.getBrakCount());
 console.log(myDog.wagTail());
+
+// Mobile Legends Reference ===================================>
+
+function MLHero(name) {
+  this.name = name;
+  let level = 1;
+
+  this.levelUp = function () {
+    level++;
+    return `${level} level up`;
+  };
+  this.sayHello = function () {
+    return `Hello I'm ${this.name} nice to meet you`;
+  };
+}
+
+MLHero.prototype.isWarrior = function () {
+  return `${this.name} is a warrior`;
+};
+
+function MyHeroAbility(name, ability) {
+  MLHero.call(this, name);
+  this.ability = ability;
+}
+
+// MyHeroAbility.prototype = Object.create(MLHero.prototype);
+// MyHeroAbility.prototype.constructor = MyHeroAbility;
+
+MyHeroAbility.prototype.firstSkill = function () {
+  return `I will use ${this.ability}`;
+};
+Object.setPrototypeOf(MyHeroAbility.prototype, MLHero.prototype);
+
+const myMLHero = new MyHeroAbility("Alucard", "Katon Fire Ball Technique");
+
+console.log(myMLHero.name);
+console.log(myMLHero.levelUp());
+console.log(myMLHero.sayHello());
+console.log(myMLHero.isWarrior());
+console.log(myMLHero.firstSkill());
