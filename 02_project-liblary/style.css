@@ -5,49 +5,55 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  color: var(--lighter);
 }
 :root {
-  --dark: #3c3c3c;
+  --dark: #141414;
+  --darkest: #000000;
+  --lighter: #d9d9d9;
+  --light: #9d9d9d;
+  --darker: #1a1a1a;
 }
+
 body {
-  background-color: var(--dark);
+  background-color: var(--darkest);
 }
 
 .container {
-  display: flex;
+  padding: 1rem;
 }
-
-.left {
-  width: 450px;
-  height: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: white;
-  margin: 0 2rem;
-  padding: 2.5rem;
-  margin-top: 50px;
-  border-radius: 1rem;
-}
-
-h1 {
-  text-align: center;
+nav {
   margin-bottom: 1rem;
 }
-form {
-  width: 100%;
-}
+
 input {
+  background-color: var(--darker);
+  color: var(--light);
+  padding: 0.5rem 1rem;
   width: 100%;
-  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
   margin-bottom: 1rem;
 }
 
-#submit {
-  margin-top: 1.5rem;
-  background-color: var(--dark);
-  color: white;
-  font-size: 1rem;
-  border-radius: 0.5rem;
+ul {
+  list-style-type: none;
+}
+
+ul > li {
+  background-color: var(--darker);
+  margin-bottom: 1rem;
   padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  border: none;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+span {
+  color: #9d9d9d;
+  font-size: 12px;
+  display: block;
+  margin-top: 1rem;
 }
