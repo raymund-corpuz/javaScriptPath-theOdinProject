@@ -141,3 +141,29 @@ console.log(car.getBrand());
 
 let brand = car.getBrand.bind(car);
 console.log(brand());
+
+// =======================================================>
+
+const Dog = function (name) {
+  this.name = name;
+  let barkCount = 0;
+
+  this.bark = function () {
+    barkCount++;
+    return `${this.name} "bark"`;
+  };
+
+  this.getBrakCount = function () {
+    return `${this.name} has barked ${barkCount} times`;
+  };
+};
+
+Dog.prototype.wagTail = function () {
+  return `${this.name} is wagging tail`;
+};
+
+const myDog = new Dog("Dave");
+console.log(myDog.bark());
+console.log(myDog.bark());
+console.log(myDog.getBrakCount());
+console.log(myDog.wagTail());
