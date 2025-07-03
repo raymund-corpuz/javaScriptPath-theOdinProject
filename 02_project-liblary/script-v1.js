@@ -67,6 +67,14 @@ function addBookToLibrary(book) {
   const listPages = document.createElement("span");
   listPages.textContent = `Pages: ${book.pages}`;
   listTitle.appendChild(listPages);
+  const deleteBtn = document.createElement("button");
+  deleteBtn.classList.add("delete-btn");
+  deleteBtn.textContent = "Delete";
+  listTitle.appendChild(deleteBtn);
+
+  deleteBtn.addEventListener("click", () => {
+    listTitle.remove();
+  });
 
   closeModal();
 }

@@ -46,7 +46,16 @@ input {
   margin-bottom: 1rem;
 }
 
-.add-button {
+.add-button,
+.save {
+  width: 100%;
+  color: var(--darker);
+  background-color: var(--lighter);
+  padding: 0.5rem 1rem;
+  border: none;
+  font-weight: 400;
+  font-size: 1rem;
+  border-radius: 0.5rem;
   width: 100%;
 }
 
@@ -58,13 +67,10 @@ ul {
 ul > li {
   background-color: var(--darker);
   margin-bottom: 1rem;
-  padding: 0.5rem 1rem;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   width: 100%;
   border: none;
   border-radius: 0.5rem;
-  margin-bottom: 1rem;
-  display: flex;
 }
 
 span {
@@ -75,15 +81,6 @@ span {
 }
 
 button {
-  color: var(--darker);
-  background-color: var(--lighter);
-  padding: 0.5rem 1rem;
-  border: none;
-  font-weight: 400;
-  font-size: 1rem;
-  border-radius: 0.5rem;
-  width: 100%;
-  margin-bottom: 1rem;
 }
 
 h2 {
@@ -124,4 +121,16 @@ h2 {
 form > input {
   font-size: 1rem;
   padding: 0.5rem 1.5rem;
+}
+
+.delete-btn {
+  color: var(--darker);
+  background-color: var(--lighter);
+  padding: 0.5rem 1rem;
+  border: none;
+  font-weight: 400;
+  font-size: 12px;
+  border-radius: 0.5rem;
+  width: 100%;
+  margin-top: 0.5rem;
 }
