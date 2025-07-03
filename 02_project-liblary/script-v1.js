@@ -77,4 +77,6 @@ function addBookToLibrary(book) {
   });
 
   closeModal();
+
+  console.log(myLibrary);
 }
