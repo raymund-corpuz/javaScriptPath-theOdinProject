@@ -36,3 +36,23 @@ const myAccount = createAccount(1000);
 myAccount.deposit(200);
 myAccount.withdraw(500);
 myAccount.withdraw(10000);
+
+//Private variabls and functions ========================>
+
+function createUser(name) {
+  const discordName = "@" + name;
+
+  let reputation = 0;
+  const getReputation = () => reputation;
+  const giveReputation = () => reputation++;
+  return { name, discordName, getReputation, giveReputation };
+}
+
+const josh = createUser("josh");
+console.log(josh.giveReputation());
+console.log(josh.giveReputation());
+
+console.log({
+  discordName: josh.discordName,
+  reputation: josh.getReputation(),
+});
