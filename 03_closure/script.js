@@ -56,3 +56,67 @@ console.log({
   discordName: josh.discordName,
   reputation: josh.getReputation(),
 });
+
+//Prototypal inheritance with factories ===================>
+function createPlayer(name, level) {
+  const { getReputation, giveReputation } = createUser(name);
+
+  const increaseLevel = () => level++;
+  return { name, getReputation, giveReputation, increaseLevel };
+}
+
+const me = createPlayer("raymund", 99);
+console.log(me.getReputation());
+console.log(me.giveReputation());
+console.log(me.giveReputation());
+console.log(me.increaseLevel());
+console.log(me.increaseLevel());
+console.log(me.name);
+
+//module pattern in JavsScript ===================>
+
+const Formatter = (function () {
+  console.log("Start");
+  const log = (message) => console.log(`[${Date.now()}] logger: ${message}`);
+
+  const makeUppercase = (text) => {
+    log("Making uppercase");
+    return text.toUpperCase();
+  };
+
+  return {
+    makeUppercase,
+  };
+})();
+
+console.log(Formatter.makeUppercase("tomek"));
+
+// Sample 2 ================================>
+const Formatter2 = (function () {
+  let timesRun = 0;
+
+  const log = (message) => console.log(`[$Date.now()] Logger: ${message}`);
+
+  const setTimesRun = () => {
+    log("Setting times run");
+    return ++timesRun;
+  };
+
+  const makeUppercase = (text) => {
+    log("Making uppercase");
+    setTimesRun();
+    return text.toUpperCase();
+  };
+
+  return {
+    makeUppercase,
+    timesRun,
+    setTimesRun,
+  };
+})();
+
+console.log(Formatter2.makeUppercase("tomek"));
+console.log(Formatter2.timesRun);
+
+Formatter2.timesRun = 10;
+console.log(Formatter2.setTimesRun());
