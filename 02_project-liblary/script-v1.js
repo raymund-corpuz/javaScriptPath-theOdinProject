@@ -58,16 +58,15 @@ function Book(title, author, pages) {
 function addBookToLibrary(book) {
   myLibrary.push(book);
 
-  myLibrary.forEach((book) => {
-    const listTitle = document.createElement("div");
-    listTitle.textContent = `Title: ${book.title}`;
-    listItem.appendChild(listTitle);
-    const spanAuthor = document.querySelector("span");
-    spanAuthor.textContent = `Author: ${book.author}`;
-    listTitle.appendChild(spanAuthor);
-    const spanDate = document.querySelector("span");
-    spanDate.textContent = `Pages: ${book.pages}`;
-    listTitle.appendChild(spanDate);
-  });
+  const listTitle = document.createElement("li");
+  listTitle.textContent = `Title: ${book.title}`;
+  listItem.appendChild(listTitle);
+  const listAuthor = document.createElement("span");
+  listAuthor.textContent = `Author: ${book.author}`;
+  listTitle.appendChild(listAuthor);
+  const listPages = document.createElement("span");
+  listPages.textContent = `Pages: ${book.pages}`;
+  listTitle.appendChild(listPages);
+
   closeModal();
 }
