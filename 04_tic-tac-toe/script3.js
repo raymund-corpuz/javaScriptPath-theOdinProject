@@ -1,3 +1,15 @@
+const game = document.querySelector(".game");
+
+for (let i = 0; i < 3; i++) {
+  for (let j = 0; j < 3; j++) {
+    const box = document.createElement("button");
+    box.classList.add("box");
+    box.value = [i, j];
+    game.appendChild(box);
+  }
+}
+
+//TICTACTOE
 const TicTacToe = (function () {
   const board = [
     ["", "", ""],
@@ -7,6 +19,7 @@ const TicTacToe = (function () {
 
   let currentPlayer = "X";
   let moves = 0;
+  let currentStatus = "";
 
   function printBoard() {
     console.log("\nCurrentBoard:");
@@ -74,7 +87,9 @@ const TicTacToe = (function () {
     }
 
     currentPlayer = currentPlayer === "X" ? "O" : "X";
+
     console.log(`Now its Player ${currentPlayer}'s turn`);
+    return;
   }
 
   function getBoard() {
@@ -89,3 +104,21 @@ const TicTacToe = (function () {
 })();
 
 TicTacToe.printBoard();
+
+const boxes = document.querySelectorAll(".box");
+const myStatus = document.querySelector(".status");
+
+boxes.forEach((box) => {
+  box.addEventListener("click", (e) => {
+    const [row, col] = e.target.value.split(",").map(Number);
+    TicTacToe.makeMove(row, col);
+
+    e.target.textContent = TicTacToe.getBoard()[row][col];
+
+    if (e.target.textContent === "X") {
+      myStatus.textContent = `Now its Player O's turn`;
+    } else {
+      myStatus.textContent = `Now its Player X's turn`;
+    }
+  });
+});
