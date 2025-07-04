@@ -120,3 +120,26 @@ console.log(Formatter2.timesRun);
 
 Formatter2.timesRun = 10;
 console.log(Formatter2.setTimesRun());
+
+//Declaring module dependencies ==========================>
+
+const Formatter3 = (function (doc) {
+  const log = (message) => console.log(`[${Date.now()}] Logger: ${message}`);
+
+  const makeUppercase = (text) => {
+    log("making Uppercase");
+    return text.toUpperCase();
+  };
+
+  const writeToDOM = (selector, message) => {
+    if (!!doc && "querySelector" in doc) {
+      doc.querySelector(selector).innerHTML = message;
+    }
+  };
+
+  return {
+    makeUppercase,
+    writeToDOM,
+  };
+})(document);
+Formatter3.writeToDOM("div", "Hi there");
