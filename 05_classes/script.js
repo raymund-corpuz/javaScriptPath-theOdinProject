@@ -139,3 +139,36 @@ const RectangelHasOwnName = class Rectangle2 {
     this.width = width;
   }
 };
+
+//Super key word
+
+class Foo {
+  constructor(name) {
+    this.name = name;
+  }
+  getNameSeparator() {
+    return "-";
+  }
+}
+
+class FooBar extends Foo {
+  constructor(name, index) {
+    super(name);
+    this.index = index;
+  }
+
+  getNameSeparator() {
+    return "/";
+  }
+
+  getFullName() {
+    return this.name + super.getNameSeparator() + this.index;
+  }
+}
+
+const firstFooBar = new FooBar("foo", 1);
+
+console.log(firstFooBar.name);
+console.log(firstFooBar.getFullName());
+console.log(firstFooBar.getNameSeparator());
+console.log(firstFooBar.getFullName());
