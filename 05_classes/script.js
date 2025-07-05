@@ -115,3 +115,27 @@ function Hero(name, level) {
 
 const alucard = new Hero("Alucard", 5);
 console.log(alucard.name, alucard.level, alucard.sayHi(), alucard.myLevel());
+
+//Defining Classes ==================================>
+class Rectangle {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
+
+//Expression; the class is anonymous but assign to a variable
+const RectangleExpression = class {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+};
+
+//Expression; the class has its own name
+const RectangelHasOwnName = class Rectangle2 {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+};
