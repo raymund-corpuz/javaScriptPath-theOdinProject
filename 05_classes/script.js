@@ -77,3 +77,16 @@ let userConstructor = new UserConstructor("Jack");
 
 console.log(userConstructor.name);
 console.log(userConstructor.isAdmin);
+
+//Constructor mode test:  new.target =======================>
+
+function UserNewTarget(name) {
+  if (!new.target) {
+    return new UserNewTarget(name);
+  }
+
+  this.name = name;
+}
+
+let johnny = UserNewTarget("John");
+console.log(johnny.name);
