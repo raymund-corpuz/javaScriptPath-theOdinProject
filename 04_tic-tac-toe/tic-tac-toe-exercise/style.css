@@ -14,25 +14,38 @@
   --light: #e5edf4;
   --gray: #66717b;
 }
+.title-container {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
 
+.title {
+  font-size: 2rem;
+  color: var(--blue);
+  text-align: center;
+}
+.sub-title {
+  color: var(--blue);
+}
 .container {
   display: flex;
   width: 500px;
-  height: 500px;
+  height: 550px;
   box-shadow: -4px 10px 60px -28px rgba(0, 0, 0, 0.69);
-
   margin: 0 auto;
-  margin-top: 50px;
-  border-radius: 1rem;
+  margin-top: 1rem;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 10px;
   justify-content: center;
   align-items: center;
 }
 
 .boxes {
-  width: 160px;
-  height: 160px;
+  width: 150px;
+  height: 150px;
   background-color: var(--blue);
   border: none;
   border-radius: 0.5rem;

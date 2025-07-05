@@ -24,14 +24,36 @@ const boxes = document.querySelectorAll(".boxes");
 
 boxes.forEach((box) => {
   box.addEventListener("click", (e) => {
-    console.log("click", e.target.value);
+    const [row, col] = e.target.value.split(",");
     const stamp = document.createElement("h1");
     stamp.textContent = currentPlayer;
-    currentPlayer = currentPlayer === "👌" ? "👎" : "👌";
+
     box.appendChild(stamp);
+    checkWinner(row, col);
   });
 });
 
 function checkWinner(row, col) {
   board[row][col] = currentPlayer;
+  const status = document.querySelector(".status");
+  console.log(status);
+  for (let i = 0; i < 3; i++) {
+    if (
+      (board[i][0] === "👌" && board[i][1] === "👌" && board[i][2] === "👌") ||
+      (board[0][i] === "👌" && board[1][i] === "👌" && board[2][i] === "👌")
+    ) {
+      status.textContent = `🎉Player ${currentPlayer} Wins`;
+      return;
+    }
+    if (
+      (board[i][0] === "👎" && board[i][1] === "👎" && board[i][2] === "👎") ||
+      (board[0][i] === "👎" && board[1][i] === "👎" && board[2][i] === "👎")
+    ) {
+      status.textContent = `🎉Player ${currentPlayer} Wins`;
+      return;
+    }
+  }
+
+  currentPlayer = currentPlayer === "👌" ? "👎" : "👌";
+  console.log(board);
 }
