@@ -90,3 +90,28 @@ function UserNewTarget(name) {
 
 let johnny = UserNewTarget("John");
 console.log(johnny.name);
+
+//Overview of Classes
+
+const bigDay = new Date(2019, 6, 19);
+console.log(bigDay.toLocaleDateString());
+
+if (bigDay.getTime() < Date.now()) {
+  console.log("Once upon a time");
+}
+
+// Exercise ============================>
+function Hero(name, level) {
+  this.name = name;
+  this.level = level;
+  this.sayHi = function () {
+    return `Hello, I'm ${this.name}. Nice Meeting you!`;
+  };
+  this.myLevel = function () {
+    ++level;
+    return `level up ${this.level}`;
+  };
+}
+
+const alucard = new Hero("Alucard", 5);
+console.log(alucard.name, alucard.level, alucard.sayHi(), alucard.myLevel());
