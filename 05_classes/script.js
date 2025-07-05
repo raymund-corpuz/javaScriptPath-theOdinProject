@@ -65,3 +65,15 @@ function User(name, birthday) {
 
 let john = new User("John", new Date(1992, 6, 11));
 console.log(john.birthday);
+
+//Class basic syntax ===============================>
+
+function UserConstructor(name) {
+  this.name = name;
+  this.isAdmin = false;
+}
+
+let userConstructor = new UserConstructor("Jack");
+
+console.log(userConstructor.name);
+console.log(userConstructor.isAdmin);
