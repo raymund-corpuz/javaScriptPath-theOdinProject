@@ -37,3 +37,22 @@ Object.defineProperty(userSet, "fullName", {
 
 console.log(userSet.fullName);
 for (let key in userSet) console.log(key);
+
+//Smarter getters/setter ================================>
+
+let userSmarter = {
+  get name() {
+    return this._name;
+  },
+
+  set name(value) {
+    if (value.length < 4) {
+      console.log("Name is too short, need at least 4 characters");
+      return;
+    }
+    this._name = value;
+  },
+};
+
+userSmarter.name = "Gio";
+console.log(userSmarter.name);
