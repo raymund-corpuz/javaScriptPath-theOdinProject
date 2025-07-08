@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project: Liblary</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="nav">
+        <h1>Odin Library</h1>
+        <input type="text" placeholder="Search" />
+        <button class="add-button" id="addButton">+ Add book</button>
+      </div>
+
+      <ul class="list-item"></ul>
+    </div>
+
+    <div class="modal hidden">
+      <span class="times">&times;</span>
+      <h2>Add a New Book</h2>
+      <form action="bookForm" class="bookForm">
+        <input
+          id="title"
+          name="title"
+          type="text"
+          placeholder="Title"
+          required
+        />
+        <input id="author" type="text" placeholder="Author" required />
+        <input id="pages" type="number" placeholder="Pages" required />
+        <!-- <input id="date" type="date" placeholder="Date" required /> -->
+        <button type="submit" class="save">Save</button>
+      </form>
+    </div>
+
+    <script src="script-v1.js"></script>
+  </body>
+</html>
