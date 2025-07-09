@@ -75,3 +75,10 @@ const obj = JSON.parse(jsonString);
 
 console.log(obj);
 console.log(typeof obj);
+
+//JSON.Stringify() ==============================>
+
+const objStringify = { name: "John", age: 30, city: "New York" };
+const myJSON = JSON.stringify(objStringify);
+
+console.log(myJSON);
