@@ -29,10 +29,11 @@ function renderTaskInterface(task) {
   const taskDelete = document.createElement("span");
 
   taskItemDOM.classList.add("task-item");
+  taskDelete.classList.add("del-btn");
 
   //props
   taskItemDOM.innerText = task.task;
-  taskDelete.innerHTML = `&times;`;
+  taskDelete.innerHTML = `<i class='bxr  bx-trash-x'  ></i> `;
 
   //append
   taskListUl.appendChild(taskItemDOM);
