@@ -12,7 +12,7 @@ class TaskItem {
   }
 
   getData() {
-    return `Task ${this.task}, Completed: ${task.isComplete}, Id: ${this.taskId}`;
+    return `Task: ${this.task}, Completed: ${this.isComplete}, Id: ${this.taskId}`;
   }
 }
 
@@ -20,11 +20,14 @@ taskButtonDOM.addEventListener("click", createTask);
 
 function createTask(e) {
   e.preventDefault();
-  const myNewTask = taskInputDOM.value;
+  const myNewTask = taskInputDOM.value.trim();
+
+  if (!myNewTask) return; // ✅ Prevent empty task
+
   const newTask = new TaskItem(myNewTask);
-  renderTaskInterface(newTask);
   taskArray.push(newTask);
-  console.log(taskArray);
+  renderTaskInterface(newTask);
+  taskInputDOM.value = ""; // ✅ Clear input after adding
 }
 
 function renderTaskInterface(task) {
@@ -34,25 +37,17 @@ function renderTaskInterface(task) {
   taskItemDOM.classList.add("task-item");
   taskDelete.classList.add("del-btn");
 
-  //props
   taskItemDOM.innerText = task.task;
-  taskDelete.textContent = `delete`;
-
-  //append
-  taskListUl.appendChild(taskItemDOM);
+  taskDelete.textContent = "Delete";
 
   taskItemDOM.appendChild(taskDelete);
+  taskListUl.appendChild(taskItemDOM);
 
-  //reset input
-  taskInputDOM.value = "";
-
-  //delte
-  const deleteBtn = document.querySelectorAll(".del-btn");
-  deleteBtn.forEach((delBtn) => {
-    delBtn.addEventListener("click", removeTaskInput);
+  // ✅ Delete handler (per task)
+  taskDelete.addEventListener("click", () => {
+    taskItemDOM.remove(); // removes from UI
+    const index = taskArray.findIndex((t) => t.taskId === task.taskId);
+    if (index !== -1) taskArray.splice(index, 1); // removes from array
+    console.log("Deleted:", task.getData());
   });
-}
-
-function removeTaskInput() {
-  console.log("delete");
 }
