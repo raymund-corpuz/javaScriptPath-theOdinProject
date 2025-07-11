@@ -80,7 +80,7 @@ const saveButton = document.querySelector(".save");
 const cancelButton = document.querySelector(".cancel");
 
 saveButton.addEventListener("click", handleSubmit);
-cancelButton.addEventListener("click", cancelSubmit);
+cancelButton.addEventListener("click", closeModal);
 
 //Create new Task ========================================>
 function handleSubmit(e) {
@@ -115,10 +115,6 @@ function handleSubmit(e) {
   closeModal();
 }
 
-function cancelSubmit() {
-  console.log("cancel");
-}
-
 //render Taskly ======================>
 function renderTaskly(task) {
   const taskItem = document.createElement("div");
@@ -142,4 +138,10 @@ function renderTaskly(task) {
   taskItem.appendChild(dueDate);
   taskItem.appendChild(priority);
   taskItem.appendChild(deleteButton);
+
+  deleteButton.addEventListener("click", () => handleDelete(task.id));
+
+  function handleDelete(task) {
+    taskItem.remove();
+  }
 }
