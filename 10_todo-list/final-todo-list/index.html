@@ -9,14 +9,33 @@
   <body>
     <div class="container">
       <nav>
-        <h1>The Odin Project: Taskly</h1>
+        <h1>Taskly</h1>
       </nav>
-      <div class="input-section">
+      <div class="add-section">
         <input type="text" placeholder="Search..." class="search-task" />
         <button class="add-button">Add Task</button>
       </div>
 
       <div class="output-section"></div>
+
+      <div class="input-section">
+        <form action="" name="taskly-input">
+          <input type="text" placeholder="Title:" class="title-input" />
+          <input
+            type="text"
+            placeholder="Description:"
+            class="description-input"
+          />
+          <input type="date" class="date-input" />
+          <select name="priority" id="" class="priority-input">
+            <option value="priority">Priority</option>
+            <option value="top-priority">Top Priority</option>
+            <option value="top-priority">Less Priority</option>
+          </select>
+          <input type="submit" value="Save" class="save" />
+          <button type="button" class="cancel">Cancel</button>
+        </form>
+      </div>
     </div>
   </body>
 </html>
