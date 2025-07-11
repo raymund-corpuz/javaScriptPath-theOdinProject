@@ -16,8 +16,6 @@
         <button class="add-button">Add Task</button>
       </div>
 
-      <div class="output-section"></div>
-
       <div class="input-section">
         <form action="" name="taskly-input">
           <input type="text" placeholder="Title:" class="title-input" />
@@ -28,14 +26,16 @@
           />
           <input type="date" class="date-input" />
           <select name="priority" id="" class="priority-input">
+            <option value="">Select Priority</option>
             <option value="priority">Priority</option>
             <option value="top-priority">Top Priority</option>
-            <option value="top-priority">Less Priority</option>
+            <option value="less-priority">Less Priority</option>
           </select>
           <input type="submit" value="Save" class="save" />
           <button type="button" class="cancel">Cancel</button>
         </form>
       </div>
+      <div class="output-section"></div>
     </div>
   </body>
 </html>
