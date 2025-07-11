@@ -5,37 +5,41 @@ const addTaskButton = document.querySelector(".add-button");
 const outputContainer = document.querySelector(".output-section");
 const modalClose = document.querySelector(".modal-close");
 
-addTaskButton.addEventListener("click", () => {
+function openModal() {
   const modal = document.querySelector(".modal");
-
   modal.classList.add("is-active");
-});
+}
 
-modalClose.addEventListener("click", () => {
+function closeModal() {
   const modal = document.querySelector(".modal");
-
   modal.classList.remove("is-active");
-});
+}
+
+addTaskButton.addEventListener("click", openModal);
+
+modalClose.addEventListener("click", closeModal);
 //input-section====================================================>
 
 const myProjectListArray = [];
 
 //localStorage  Initialization ==============================>
 
-let myTaskListArray = getItemFromLocalStorage();
+let myArray = getItemFromLocalStorage();
 
 function getItemFromLocalStorage() {
   const key = localStorage.getItem("todo") || "[]";
-  return JSON.parse(key);
+  const value = JSON.parse(key);
+  const newValue = [...value];
+  newValue.forEach((item) => {
+    renderTaskly(item);
+  });
+  return value;
 }
 
 function setMyTaskListArray(items) {
-  const myTaskJSON = JSON.stringify(items);
-
-  localStorage.setItem("todo", myTaskJSON);
+  myArray.push(items);
+  localStorage.setItem("todo", JSON.stringify(myArray));
 }
-
-console.log(myTaskListArray);
 
 //Class Declaration ====================================>
 
@@ -66,7 +70,6 @@ class CreateProject {
 // Initialize Class =========================================>
 
 const myNewProject = new CreateProject("ProjectName");
-console.log(myNewProject);
 
 //UI ==================================================>
 const titleInput = document.querySelector(".title-input");
@@ -82,7 +85,6 @@ cancelButton.addEventListener("click", cancelSubmit);
 //Create new Task ========================================>
 function handleSubmit(e) {
   e.preventDefault();
-  //get value
   const titleSave = titleInput.value.trim();
   const descriptionSave = descriptionInput.value.trim();
   const dateSave = dateInput.value;
@@ -99,7 +101,6 @@ function handleSubmit(e) {
     dateSave,
     prioritySave
   );
-  console.log(myNewTask);
 
   //empty input
   titleInput.value = "";
@@ -107,11 +108,11 @@ function handleSubmit(e) {
   dateInput.value = "";
   priorityInput.value = "";
 
-  //save to localStorage
-  setMyTaskListArray(myNewTask);
+  //function
 
-  //render UI
+  setMyTaskListArray(myNewTask);
   renderTaskly(myNewTask);
+  closeModal();
 }
 
 function cancelSubmit() {
@@ -121,9 +122,24 @@ function cancelSubmit() {
 //render Taskly ======================>
 function renderTaskly(task) {
   const taskItem = document.createElement("div");
-  taskItem.innerText = task.title;
-  taskItem.classList.add("list-item");
-  outputContainer.appendChild(taskItem);
+  const title = document.createElement("h3");
+  const description = document.createElement("p");
+  const dueDate = document.createElement("p");
+  const priority = document.createElement("p");
+  const deleteButton = document.createElement("button");
 
-  console.log(task);
+  title.innerText = `Title: ${task.title}`;
+  description.innerText = `Description: ${task.description}`;
+  dueDate.innerText = `Due date: ${task.dueDate}`;
+  priority.innerText = `Priority: ${task.priority}`;
+  deleteButton.innerText = "delete";
+
+  taskItem.classList.add("list-item");
+
+  outputContainer.appendChild(taskItem);
+  taskItem.appendChild(title);
+  taskItem.appendChild(description);
+  taskItem.appendChild(dueDate);
+  taskItem.appendChild(priority);
+  taskItem.appendChild(deleteButton);
 }

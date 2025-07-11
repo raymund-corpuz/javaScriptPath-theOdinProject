@@ -8,10 +8,31 @@
 
 .list-item {
   background-color: white;
-  padding: 1rem;
+  padding: 8px;
   font-size: 14px;
   font-weight: 400;
   color: var(--darker);
   border-radius: 0.5rem;
   margin: 1rem 0;
+}
+
+.list-item h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.list-item p {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.list-item button {
+  font-size: 12px;
+  font-weight: 400;
+  background-color: #1a1a1a;
+  color: var(--lighter);
+  width: 100%;
+  padding: 4px;
+  border-radius: 0.5rem;
+  margin-top: 8px;
 }
