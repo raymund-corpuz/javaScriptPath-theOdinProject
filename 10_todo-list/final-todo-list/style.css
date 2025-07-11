@@ -1,0 +1,17 @@
+:root {
+  --dark: #141414;
+  --darkest: #000000;
+  --lighter: #d9d9d9;
+  --light: #9d9d9d;
+  --darker: #1a1a1a;
+}
+
+.list-item {
+  background-color: white;
+  padding: 1rem;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--darker);
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}

@@ -12,46 +12,75 @@
     <title>Project: Todo List - JavaScript Course</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container is-flex is-flex-direction-column p-4">
       <nav>
-        <h1>Taskly</h1>
+        <h1 class="my-2">Taskly</h1>
       </nav>
-      <div class="add-section">
+      <div class="add-section my-2">
         <input
           type="text"
           placeholder="Search..."
-          class="search-task input is-small"
+          class="search-task input is-small mb-2"
         />
         <button class="add-button button is-light is-small is-fullwidth">
           Add Task
         </button>
       </div>
 
-      <div class="input-section">
-        <form action="" name="taskly-input">
-          <input
-            type="text"
-            placeholder="Title:"
-            class="title-input input is-small"
-          />
-          <input
-            type="text"
-            placeholder="Description:"
-            class="description-input input is-small"
-          />
-          <input type="date" class="date-input" />
-          <select name="priority" id="" class="priority-input">
-            <option value="">Select Priority</option>
-            <option value="priority">Priority</option>
-            <option value="top-priority">Top Priority</option>
-            <option value="less-priority">Less Priority</option>
-          </select>
-          <input type="submit" value="Save" class="save" />
-          <button type="button" class="cancel">Cancel</button>
-        </form>
+      <div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <!-- Any other Bulma elements you want -->
+          <div class="input-section m-5">
+            <h1>Add to Taskly</h1>
+            <form action="" name="taskly-input">
+              <input
+                type="text"
+                placeholder="Title:"
+                class="title-input input is-small my-2"
+              />
+              <input
+                type="text"
+                placeholder="Description:"
+                class="description-input input is-small my-2"
+              />
+              <div class="control my-2">
+                <input
+                  type="date"
+                  class="date-input my-2 is-fullwidth"
+                  placeholder="Select a date"
+                />
+              </div>
+
+              <div class="control my-2">
+                <div class="select is-small">
+                  <select name="priority" id="" class="priority-input">
+                    <option value="">Select Priority</option>
+                    <option value="priority">Priority</option>
+                    <option value="top-priority">Top Priority</option>
+                    <option value="less-priority">Less Priority</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="control my-2">
+                <input
+                  type="submit"
+                  value="Save"
+                  class="save button is-small is-primary"
+                />
+                <button type="button" class="cancel button is-danger is-small">
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
       </div>
+
       <div class="output-section">
-        <div>
+        <div class="list-item">
           <h3>Title</h3>
           <p>description</p>
           <span>Due date</span>

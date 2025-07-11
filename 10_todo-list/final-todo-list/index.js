@@ -3,6 +3,19 @@
 const searchTask = document.querySelector(".search-task");
 const addTaskButton = document.querySelector(".add-button");
 const outputContainer = document.querySelector(".output-section");
+const modalClose = document.querySelector(".modal-close");
+
+addTaskButton.addEventListener("click", () => {
+  const modal = document.querySelector(".modal");
+
+  modal.classList.add("is-active");
+});
+
+modalClose.addEventListener("click", () => {
+  const modal = document.querySelector(".modal");
+
+  modal.classList.remove("is-active");
+});
 //input-section====================================================>
 
 const myProjectListArray = [];
@@ -95,7 +108,7 @@ function handleSubmit(e) {
   priorityInput.value = "";
 
   //save to localStorage
-  //   setMyTaskListArray(myNewTask);
+  setMyTaskListArray(myNewTask);
 
   //render UI
   renderTaskly(myNewTask);
@@ -109,6 +122,7 @@ function cancelSubmit() {
 function renderTaskly(task) {
   const taskItem = document.createElement("div");
   taskItem.innerText = task.title;
+  taskItem.classList.add("list-item");
   outputContainer.appendChild(taskItem);
 
   console.log(task);
