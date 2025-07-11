@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script defer src="index.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
+    />
     <title>Project: Todo List - JavaScript Course</title>
   </head>
   <body>
@@ -12,17 +17,27 @@
         <h1>Taskly</h1>
       </nav>
       <div class="add-section">
-        <input type="text" placeholder="Search..." class="search-task" />
-        <button class="add-button">Add Task</button>
+        <input
+          type="text"
+          placeholder="Search..."
+          class="search-task input is-small"
+        />
+        <button class="add-button button is-light is-small is-fullwidth">
+          Add Task
+        </button>
       </div>
 
       <div class="input-section">
         <form action="" name="taskly-input">
-          <input type="text" placeholder="Title:" class="title-input" />
+          <input
+            type="text"
+            placeholder="Title:"
+            class="title-input input is-small"
+          />
           <input
             type="text"
             placeholder="Description:"
-            class="description-input"
+            class="description-input input is-small"
           />
           <input type="date" class="date-input" />
           <select name="priority" id="" class="priority-input">
@@ -35,7 +50,14 @@
           <button type="button" class="cancel">Cancel</button>
         </form>
       </div>
-      <div class="output-section"></div>
+      <div class="output-section">
+        <div>
+          <h3>Title</h3>
+          <p>description</p>
+          <span>Due date</span>
+          <span>Priority</span>
+        </div>
+      </div>
     </div>
   </body>
 </html>
