@@ -33,7 +33,7 @@ function getItemFromLocalStorage() {
   newValue.forEach((item) => {
     renderTaskly(item);
   });
-  return value;
+  return newValue;
 }
 
 function setMyTaskListArray(items) {
@@ -140,8 +140,10 @@ function renderTaskly(task) {
   taskItem.appendChild(deleteButton);
 
   deleteButton.addEventListener("click", () => handleDelete(task.id));
+}
 
-  function handleDelete(task) {
-    taskItem.remove();
-  }
+function handleDelete(task) {
+  myArray = myArray.filter((item) => item.id !== task);
+  console.log(myArray);
+  return myArray;
 }
