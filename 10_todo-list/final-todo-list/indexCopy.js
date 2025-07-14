@@ -43,6 +43,7 @@ todoListArray.forEach((task) => {
 function renderTask(task) {
   const outputContainer = document.querySelector(".output-section");
   outputContainer.innerHTML = "";
+
   todoListArray.forEach((task) => {
     renderUI(task);
   });
@@ -88,9 +89,11 @@ const dateInput = document.querySelector(".date-input");
 const priorityInput = document.querySelector(".priority-input");
 const saveButton = document.querySelector(".save");
 const cancelButton = document.querySelector(".cancel");
+const closeTask = document.querySelector(".modal-close");
 
 saveButton.addEventListener("click", handleSubmit);
 cancelButton.addEventListener("click", closeModal);
+closeTask.addEventListener("click", closeModal);
 
 //Create new Task ========================================>
 function handleSubmit(e) {
