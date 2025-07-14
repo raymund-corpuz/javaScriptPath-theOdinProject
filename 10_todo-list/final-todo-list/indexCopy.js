@@ -1,36 +1,20 @@
 let todoListArray = getFromLocalStorage();
 
 function getFromLocalStorage() {
-  try {
-    const raw = localStorage.getItem("todo") || "[]";
-    return JSON.parse(raw);
-  } catch (error) {
-    console.error("Error parsing localStorage data:", error);
-    return [];
-  }
+  const value = localStorage.getItem("todo")
+    ? JSON.parse(localStorage.getItem("todo"))
+    : [];
+  return value;
 }
 
 function setFromLocalStorage(task) {
   localStorage.setItem("todo", JSON.stringify(task));
 }
 
-const todoObject = {
-  title: "The Odin Project",
-  description: "This is awesome",
-  dueDate: "June 12, 2025",
-  id: "001",
-  priority: "Top Priority",
-  delete: true,
-};
-
-const todoObject2 = {
-  title: "The Odin Project 2",
-  description: "This is awesome",
-  dueDate: "June 12, 2025",
-  id: "002",
-  priority: "Top Priority",
-  delete: true,
-};
+function renderLocalStorage(task) {
+  setFromLocalStorage(task);
+  getFromLocalStorage();
+}
 
 function openModal() {
   const modal = document.querySelector(".modal");
@@ -52,17 +36,22 @@ function addTask(task) {
 const addButton = document.querySelector(".add-button");
 addButton.addEventListener("click", openModal);
 
-function renderTask(todoListArray) {
+todoListArray.forEach((task) => {
+  console.log(task);
+});
+
+function renderTask(task) {
   const outputContainer = document.querySelector(".output-section");
   outputContainer.innerHTML = "";
-
-  todoListArray.forEach((value) => {
-    renderUI(value);
+  todoListArray.forEach((task) => {
+    renderUI(task);
   });
 }
 
 function removeTask(task) {
   todoListArray = todoListArray.filter((todo) => +todo.id !== +task);
+  renderTask(todoListArray);
+  renderLocalStorage(todoListArray);
   return todoListArray;
 }
 
@@ -89,6 +78,8 @@ function renderUI(task) {
   taskItem.appendChild(priority);
   taskItem.appendChild(deleteButton);
   outputContainer.appendChild(taskItem);
+
+  deleteButton.addEventListener("click", () => removeTask(task.id));
 }
 
 const titleInput = document.querySelector(".title-input");
