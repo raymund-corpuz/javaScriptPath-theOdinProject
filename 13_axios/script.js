@@ -52,7 +52,15 @@ function removeTodo() {
 }
 
 // SIMULTANEOUS DATA
-function getData() {}
+function getData() {
+  axios
+    .all([
+      axios.get("https://jsonplaceholder.typicode.com/todos?_limit=5"),
+      axios.get("https://jsonplaceholder.typicode.com/posts?_limit=5"),
+    ])
+    .then(axios.spread((todo, post) => showOutput(post)))
+    .catch((error) => console.log(error.message));
+}
 
 // CUSTOM HEADERS
 function customHeaders() {
