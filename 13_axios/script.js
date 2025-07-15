@@ -1,6 +1,6 @@
 // AXIOS GLOBALS
 
-const URL = "https://jsonplaceholder.typicode.com/todos";
+const URL = "https://jsonplaceholder.typicode.com/todos?_limit=5";
 
 // GET REQUEST
 function getTodos() {
@@ -108,6 +108,20 @@ function errorHandling() {}
 function cancelToken() {}
 
 // INTERCEPTING REQUESTS & RESPONSES
+axios.interceptors.request.use(
+  (config) => {
+    console.log(
+      `${config.method.toUpperCase()} request sent to ${
+        config.url
+      } at ${new Date().getTime()}`
+    );
+
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
 // AXIOS INSTANCE
 const axiosInstance = axios.create({});
