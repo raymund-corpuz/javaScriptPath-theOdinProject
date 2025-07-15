@@ -1,16 +1,26 @@
 async function getData() {
-  const url = "https://jsonplaceholder.typicode.com/posts";
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`);
-    }
+  const url = "https://jsonplaceholder.typicode.com/todos";
 
-    const json = await response.json();
-    console.log(json);
-  } catch (error) {
-    console.log(error.message);
-  }
+  const res = await fetch(url);
+  const data = await res.json();
+
+  return data;
 }
 
-getData();
+const datas = getData();
+
+const root = document.querySelector(".root");
+
+// console.log(typeof data);
+
+// Object.values(data).forEach(([key, value]) => {
+//   console.log(`${value}`);
+// });
+
+datas.then((data) => {
+  data.forEach((item) => {
+    const p = document.createElement("p");
+    p.textContent = item.title;
+    root.appendChild(p);
+  });
+});
