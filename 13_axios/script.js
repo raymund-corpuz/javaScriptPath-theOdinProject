@@ -105,7 +105,20 @@ function transformResponse() {
 }
 
 // ERROR HANDLING
-function errorHandling() {}
+function errorHandling() {
+  axios
+    .get("https://jsonplaceholder.typicode.com/todoss")
+    .then((res) => showOutput(res))
+    .catch((error) => {
+      if (error.message) {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+
+        alert("Page Not Found");
+      }
+    });
+}
 
 // CANCEL TOKEN
 function cancelToken() {}
