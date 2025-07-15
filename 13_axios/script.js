@@ -1,5 +1,8 @@
 // AXIOS GLOBALS
 
+axios.defaults.headers.common["X-Auth-Token"] =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30";
+
 const URL = "https://jsonplaceholder.typicode.com/todos?_limit=5";
 
 // GET REQUEST
@@ -85,7 +88,21 @@ function customHeaders() {
 }
 
 // TRANSFORMING REQUESTS & RESPONSES
-function transformResponse() {}
+function transformResponse() {
+  const options = {
+    method: "post",
+    url: "https://jsonplaceholder.typicode.com/todos",
+    data: {
+      title: "Harry Potter",
+    },
+    transformResponse: axios.defaults.transformResponse.concat((data) => {
+      data.title = data.title.toUpperCase();
+      return data;
+    }),
+  };
+
+  axios(options).then((res) => showOutput(res));
+}
 
 // ERROR HANDLING
 function errorHandling() {}
