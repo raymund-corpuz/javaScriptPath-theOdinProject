@@ -66,7 +66,7 @@ function getData() {
 function customHeaders() {
   const config = {
     headers: {
-      "Content-Type": "application/json",
+      "Contents-Type": "Application/JSON",
       Authorization: "sometoken",
     },
   };
@@ -75,31 +75,17 @@ function customHeaders() {
     .post(
       "https://jsonplaceholder.typicode.com/todos",
       {
-        title: "New Todo",
-        completed: false,
+        title: "New Todos",
+        complete: true,
       },
       config
     )
-    .then((res) => showOutput(res))
-    .catch((err) => console.error(err));
+    .then((response) => showOutput(response))
+    .catch((error) => console.log(error.message));
 }
 
 // TRANSFORMING REQUESTS & RESPONSES
-function transformResponse() {
-  const options = {
-    method: "post",
-    url: "https://jsonplaceholder.typicode.com/todos",
-    data: {
-      title: "Hello World",
-    },
-    transformResponse: axios.defaults.transformResponse.concat((data) => {
-      data.title = data.title.toUpperCase();
-      return data;
-    }),
-  };
-
-  axios(options).then((res) => showOutput(res));
-}
+function transformResponse() {}
 
 // ERROR HANDLING
 function errorHandling() {}
