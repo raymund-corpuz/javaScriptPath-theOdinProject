@@ -46,3 +46,30 @@ async function getPersonInfo(name) {
 }
 
 console.log(getPersonInfo("Odin"));
+
+const img = document.querySelector(".image");
+
+async function getCats() {
+  const response = await fetch(
+    "https://api.giphy.com/v1/gifs/translate?api_key=YOUR_KEY_HERE&s=cats",
+    { mode: "cors" }
+  );
+  const catData = await response.json();
+  img.src = catData.data.images.original.url;
+}
+
+//Fireship ==============================>
+
+console.log("🥪 Synchronous 1");
+
+setTimeout((_) => console.log(`🍅 Timeout 2`), 0);
+
+Promise.resolve().then((_) => console.log("🍍 Promise"));
+
+console.log("🥪 Synchronous 4");
+
+const promise = fetch("https://jsonplaceholder.typicode.com/todos/1");
+
+promise.then((res) => res.json()).then((user) => console.log("😊", user.title));
+
+console.log("🥪 Synchronous");
