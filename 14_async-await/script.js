@@ -110,13 +110,20 @@ const asynccodeBlocker = () => {
   //   while (i < 1000000000) {
   //     i++;
 
-  return new Promise((resolve, reject) => {
-    let i = 0;
+  //   return new Promise((resolve, reject) => {
+  //     let i = 0;
 
+  //     while (i < 1000000000) {
+  //       i++;
+  //     }
+  //     resolve("🐷 Billion loops");
+  //   });
+
+  return Promise.resolve().then((v) => {
+    let i = 0;
     while (i < 1000000000) {
-      i++;
+      return "🐷 billion loops done";
     }
-    resolve("🐷 Billion loops");
   });
 };
 
