@@ -80,3 +80,48 @@ promise
   .catch((err) => console.error("😭", err));
 
 console.log("🥪 Synchronous");
+
+// Elapse time ============================>
+const tick = Date.now();
+const log = (v) => console.log(`${v} \n Elapsed: ${Date.now() - tick}`);
+
+const codeBlocker = () => {
+  let i = 0;
+  while (i < 1000000000) {
+    i++;
+  }
+  return "🐷 Billion loops";
+};
+
+log("🥪 Synchronouuuuuus");
+
+log(codeBlocker());
+
+log("🥪 Synchronouuuuuus 2");
+
+//async Elapse =================================>
+// Elapse time ============================>
+const asynctick = Date.now();
+const asynclog = (v) =>
+  console.log(`${v} \n Elapsed: ${Date.now() - asynctick}`);
+
+const asynccodeBlocker = () => {
+  //   let i = 0;
+  //   while (i < 1000000000) {
+  //     i++;
+
+  return new Promise((resolve, reject) => {
+    let i = 0;
+
+    while (i < 1000000000) {
+      i++;
+    }
+    resolve("🐷 Billion loops");
+  });
+};
+
+asynclog("🥪 Synchronouuuuuus");
+
+asynccodeBlocker().then(asynclog);
+
+asynclog("🥪 Synchronouuuuuus 2");
