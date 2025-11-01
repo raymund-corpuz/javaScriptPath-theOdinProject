@@ -207,3 +207,20 @@ console.log(myMLHero.levelUp());
 console.log(myMLHero.sayHello());
 console.log(myMLHero.isWarrior());
 console.log(myMLHero.firstSkill());
+
+class Car {
+  constructor(brand, model, year) {
+    this.brand = brand;
+    this.model = model;
+    this.year = year;
+  }
+
+  displayInfo() {
+    const display = `${this.brand} are affordable, ${this.model} has amazing features`;
+
+    return display;
+  }
+}
+
+const newCar = new Car("Toyota", "Corolla", 2022);
+console.log(newCar.displayInfo());
