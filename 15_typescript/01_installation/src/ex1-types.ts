@@ -14,7 +14,7 @@ let greeting = "hello Typescript";
 
 let age: number = 25;
 
-age = "twenty-five";
+//age = "twenty-five";
 
 function add(a: number, b: number) {
   return a + b;
